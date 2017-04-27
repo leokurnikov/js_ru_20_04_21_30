@@ -1,5 +1,6 @@
 import React from 'react';
 
+//почему comment=[] ?
 export default function Comment({comment=[]}) {
 
   return (
