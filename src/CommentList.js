@@ -10,6 +10,7 @@ export default class CommentList extends Component {
     return (
       <section>
         <h5 onClick={this.toggleOpen}>
+          {/*нужно менять*/}
           Open/Close
         </h5>
         <div>
