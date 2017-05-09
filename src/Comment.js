@@ -1,14 +1,11 @@
 import React from 'react';
 
-export default function Comment({comment=[]}) {
+export default function Comment({comment}) {
 
   return (
     <section>
       <div>
-        {comment.user}
-      </div>
-      <div>
-        {comment.text}
+        {comment.text} by <b>{comment.user}</b>
       </div>
     </section>
   );

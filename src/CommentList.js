@@ -3,22 +3,22 @@ import Comment from './Comment';
 
 export default class CommentList extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
   }
   render() {
-    const elements = this.props.comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>);
+    const {comments=[]} = this.props;
+    const elements = comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>);
+
+    let commentsBody = (this.state.isOpen) ? (elements.length > 0 ? (<ul>{elements}</ul>) : (<p>No comments</p>)) : null;
+    let linkHeader = this.state.isOpen ? "Close" : "Open";
+
     return (
       <section>
         <h5 onClick={this.toggleOpen}>
-          Open/Close
+          <a>{linkHeader} comments below</a>
         </h5>
         <div>
-          {
-            this.state.isOpen &&
-            <ul>
-              {elements}
-            </ul>
-          }
+          {commentsBody}
         </div>
       </section>
     )
@@ -31,7 +31,7 @@ export default class CommentList extends Component {
   }
 }
 
-//не реализована обработка случая когда нет массива комментов
+//DONE... не реализована обработка случая когда нет массива комментов
 //не меняется текс Открыть/Закрыть для комментов
 
 
